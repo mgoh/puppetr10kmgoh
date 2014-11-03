@@ -8,4 +8,8 @@ node 'vm-webhost-01.cca.edu' {
     port    => '80',
     docroot => '/opt/www/fluffy',
   }
+  class {'::apache::mod::php':
+    package_name => "php54-php",
+    path         => "${::apache::params::lib_path}/libphp54-php5.so",
+  }
 }
