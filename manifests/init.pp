@@ -5,8 +5,9 @@ node 'vm-webhost-01.cca.edu' {
   }
   class { '::apache':}
   apache::vhost { 'fluffy.cca.edu':
-    port    => '80',
-    docroot => '/opt/www/fluffy',
+    port       => '80',
+    docroot    => '/opt/www/fluffy',
+    mpm_module => 'prefork'
   }
   class {'::apache::mod::php':
     package_name => "php54-php",
