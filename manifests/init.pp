@@ -3,11 +3,12 @@ node 'vm-webhost-01.cca.edu' {
   class { '::ntp':
     servers => [ 'ntp1.cca.edu', 'ntp2.cca.edu' ],
   }
-  class { '::apache':}
+  class { '::apache':
+    mpm_module => 'prefork'
+  }
   apache::vhost { 'fluffy.cca.edu':
     port       => '80',
     docroot    => '/opt/www/fluffy',
-    mpm_module => 'prefork'
   }
   class {'::apache::mod::php':
     package_name => "php54-php",
