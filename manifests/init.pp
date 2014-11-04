@@ -11,7 +11,7 @@ node 'vm-webhost-01.cca.edu' {
     docroot    => '/opt/www/fluffy',
   }
   class {'::apache::mod::php':
-    package_name => "php54-php",
-    path         => "${::apache::params::lib_path}/libphp54-php5.so",
+    package_name => "php5",
+    path         => "${::apache::params::lib_path}/libphp5.so",
   }
 }
