@@ -32,3 +32,16 @@ node 'vm-webhost-02.cca.edu' {
     path         => "${::apache::params::lib_path}/libphp5.so",
   }
 }
+
+node 'vm-myql-07.cca.edu' {
+  #ntp module for correct time
+  class { '::ntp':
+    servers => [ 'ntp1.cca.edu', 'ntp2.cca.edu' ],
+  }
+  #mysql server
+  class { '::mysql::server':
+    #initial password; changes this asap
+    root_password    => 'nottherealpassword',
+    override_options => { 'mysqld' => { 'max_connections' => '1024' } }
+  } 
+} 
