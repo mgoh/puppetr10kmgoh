@@ -33,7 +33,7 @@ node 'vm-webhost-02.cca.edu' {
   }
 }
 
-node 'vm-myql-07.cca.edu' {
+node 'vm-mysql-07.cca.edu' {
   #ntp module for correct time
   class { '::ntp':
     servers => [ 'ntp1.cca.edu', 'ntp2.cca.edu' ],
